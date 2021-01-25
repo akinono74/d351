@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Next: Node",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next",
+            "env": {
+                "NODE_OPTIONS": "--inspect"
+            },
+            "port": 9229,
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/src",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**",
+                "<node_internals>/**",
+                "<eval>/*"
+              ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Next: Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack://_N_E/src/*": "${webRoot}/*"
+            },
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**",
+                "<node_internals>/**",
+                "<eval>/*"
+              ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Next: Full",
+            "configurations": [
+                "Next: Node",
+                "Next: Chrome"
+            ]
+        }
+    ]
+}
